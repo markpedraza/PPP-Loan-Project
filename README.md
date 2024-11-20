@@ -1,4 +1,4 @@
-# cis4400
+# CIS4400
 Analysis of the PPP Loans that were issued to Small Businesses during COVID-19.
 
 
@@ -39,7 +39,7 @@ Description: This data will be used to evaluate the GDP vs the PPP loan received
 Link: https://data.sba.gov/dataset/ppp-foia
 Description: This data set will be used to analyze loan distribution by company, county, state, and industry. 
 
-PROJECT RISKS:
+## PROJECT RISKS:
 
 **Data Accuracy and Completeness:**  The PPP loan and GDP data may have inaccuracies or missing data. Which could affect the reliability of the analysis.
 
