@@ -2,18 +2,64 @@
 <project name="cis4400-group-project" database="LogicalDesign" id="LogicalDesign-1690" >
 	<comment><![CDATA[For PPP loans]]></comment>
 	<schema name="cis4400-group-project" >
+		<table name="Dim_servicing_lender" prior="Dim_servicing" >
+			<column name="servicing_lender_location_id" prior="Servicing_lender_location" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="servicing_lender_name" type="VARCHAR" length="25" jt="12" />
+			<column name="servicing_lender_address" type="VARCHAR" length="100" jt="12" />
+			<column name="servicing_lender_city" type="VARCHAR" length="25" jt="12" />
+			<column name="servicing_lender_state" type="VARCHAR" length="25" jt="12" />
+			<column name="servicing_lender_zip" type="VARCHAR" length="15" jt="12" />
+			<index name="pk_Dim_servicing_lender" unique="PRIMARY_KEY" >
+				<column name="servicing_lender_location_id" />
+			</index>
+		</table>
+		<table name="Entity" />
+		<table name="dim_SBA_office" prior="dim_SB" >
+			<column name="SBA_office_code" type="BIGINT" jt="-5" mandatory="y" />
+			<index name="pk_dim_SBA_office" unique="PRIMARY_KEY" >
+				<column name="SBA_office_code" />
+			</index>
+		</table>
+		<table name="dim_borrower" prior="dim_borrow" >
+			<column name="borrower_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="borrower_name" type="VARCHAR" length="100" jt="12" />
+			<column name="borrower_address" type="VARCHAR" length="100" jt="12" />
+			<column name="borrower_city" type="VARCHAR" length="25" jt="12" />
+			<column name="borrower_state" type="VARCHAR" length="25" jt="12" />
+			<column name="borrower_zip" type="VARCHAR" length="15" jt="12" />
+			<column name="franchise_name" type="VARCHAR" length="100" jt="12" />
+			<column name="business_age_description" type="VARCHAR" length="500" jt="12" />
+			<column name="race" type="VARCHAR" length="15" jt="12" />
+			<column name="ethnicity" type="VARCHAR" length="15" jt="12" />
+			<column name="business_type" type="VARCHAR" length="25" jt="12" />
+			<column name="gender" type="VARCHAR" length="25" jt="12" />
+			<column name="veteran" type="VARCHAR" length="25" jt="12" />
+			<column name="non_profit" type="VARCHAR" length="25" jt="12" />
+			<index name="pk_dim_borrower" unique="PRIMARY_KEY" >
+				<column name="borrower_id" />
+			</index>
+		</table>
+		<table name="dim_census_location" prior="census_location" >
+			<column name="census_location_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="project_city" type="VARCHAR" length="25" jt="12" />
+			<column name="project_county_name" type="VARCHAR" length="100" jt="12" />
+			<column name="project_zip" type="VARCHAR" length="15" jt="12" />
+			<column name="project_state" type="VARCHAR" length="25" jt="12" />
+			<column name="cd" type="VARCHAR" length="25" jt="12" />
+			<index name="pk_dim_census_location" unique="PRIMARY_KEY" >
+				<column name="census_location_id" />
+			</index>
+		</table>
 		<table name="dim_date" prior="dim_darte" >
 			<column name="date_id" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="year_number" type="INT" jt="4" />
 			<column name="month_number" type="INT" jt="4" />
 			<column name="day_number" type="INT" jt="4" />
 			<column name="week_number" type="INT" jt="4" />
-			<column name="hour_number" type="INT" jt="4" />
 			<column name="week_of_month" type="INT" jt="4" />
 			<column name="week_of_year" type="INT" jt="4" />
 			<column name="month_name" type="VARCHAR" jt="12" />
 			<column name="day_name" type="VARCHAR" length="100" jt="12" />
-			<column name="is_daylight_saving" type="BOOLEAN" jt="-7" />
 			<column name="timestamp_isoformat" type="DATETIME" length="12" jt="93" />
 			<index name="pk_dim_date" unique="PRIMARY_KEY" >
 				<column name="date_id" />
@@ -40,20 +86,19 @@
 				<column name="industry_id" />
 			</index>
 		</table>
-		<table name="dim_location_gdp" prior="dim_location" >
-			<column name="location_id" type="BIGINT" jt="-5" mandatory="y" />
-			<column name="region" type="VARCHAR" jt="12" />
-			<column name="state" type="VARCHAR" jt="12" />
-			<column name="city" type="VARCHAR" jt="12" />
-			<column name="county" type="VARCHAR" jt="12" />
-			<column name="zipcode" type="VARCHAR" jt="12" />
-			<column name="gpd" type="DECIMAL" length="0" jt="3" />
-			<column name="gpd_description" type="VARCHAR" length="0" jt="12" />
-			<column name="gpd_unit" type="INT" jt="4" />
-			<column name="gpd_line_code" type="INT" jt="4" />
-			<column name="gdp_GeoFIPS" type="INT" jt="4" />
-			<index name="pk_dim_location" unique="PRIMARY_KEY" >
-				<column name="location_id" />
+		<table name="dim_originating_lender" prior="Entity" >
+			<column name="originiating_location_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="orgininating_lender" type="VARCHAR" length="25" jt="12" />
+			<column name="origininating_lender_city" type="VARCHAR" length="25" jt="12" />
+			<column name="origininating_lender_state" type="VARCHAR" length="15" jt="12" />
+			<index name="pk_dim_originating_lender" unique="PRIMARY_KEY" >
+				<column name="originiating_location_id" />
+			</index>
+		</table>
+		<table name="dim_processing_method" prior="Dim_processing_method" >
+			<column name="processing_method" type="BIGINT" jt="-5" mandatory="y" />
+			<index name="pk_dim_processing_method" unique="PRIMARY_KEY" >
+				<column name="processing_method" />
 			</index>
 		</table>
 		<table name="facts_PPP_loans" prior="Entity" >
@@ -63,42 +108,36 @@
 			<column name="current_approval_amount" type="DECIMAL" length="0" decimal="2" jt="3" />
 			<column name="undispursed_amount" type="DECIMAL" length="0" decimal="2" jt="3" />
 			<column name="forgiveness_amount" type="DECIMAL" length="0" decimal="2" jt="3" />
-			<column name="service_lender_location_id" prior="service_lender_location_id_fk" type="BIGINT" jt="-5" mandatory="y" />
-			<column name="borrower_location_id" type="BIGINT" jt="-5" mandatory="y" />
-			<column name="project_location_id" type="BIGINT" jt="-5" mandatory="y" />
-			<column name="originating_lender_location_id" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="date_approved_id" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="loan_status_date_id" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="term_date_id" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="forgiveness_date_id" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="NAICS_code_industry_id" prior="NAICS_code_" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="loan_number" type="BIGINT" jt="-5" />
+			<column name="loan_status" type="VARCHAR" length="25" jt="12" />
+			<column name="term" type="INT" jt="4" />
+			<column name="rural_urban_indicator" type="VARCHAR" length="5" jt="12" />
+			<column name="hub_zone_indicator" type="VARCHAR" length="5" jt="12" />
+			<column name="lmi_indicator" type="VARCHAR" length="5" jt="12" />
+			<column name="jobs_reported" type="INT" jt="4" />
+			<column name="borrower_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="servicing_lender_location_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="orginating_lender_location_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="processing_method" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="SBA_office_code" type="BIGINT" jt="-5" mandatory="y" />
 			<index name="pk_facts_PPP_loans" unique="PRIMARY_KEY" >
 				<column name="fact_id" />
-				<column name="service_lender_location_id" />
-				<column name="borrower_location_id" />
-				<column name="project_location_id" />
-				<column name="originating_lender_location_id" />
 				<column name="date_approved_id" />
 				<column name="loan_status_date_id" />
 				<column name="term_date_id" />
 				<column name="NAICS_code_industry_id" />
 				<column name="forgiveness_date_id" />
+				<column name="borrower_id" />
+				<column name="servicing_lender_location_id" />
+				<column name="orginating_lender_location_id" />
+				<column name="processing_method" />
+				<column name="SBA_office_code" />
 			</index>
-			<fk name="fk_facts_PPP_loans_dim_location" to_schema="cis4400-group-project" to_table="dim_location_gdp" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
-				<fk_column name="originating_lender_location_id" pk="location_id" />
-			</fk>
-			<fk name="fk_facts_PPP_loans_dim_location_0" to_schema="cis4400-group-project" to_table="dim_location_gdp" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
-				<fk_column name="service_lender_location_id" pk="location_id" />
-			</fk>
-			<fk name="fk_facts_PPP_loans_dim_location_1" to_schema="cis4400-group-project" to_table="dim_location_gdp" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
-				<fk_column name="borrower_location_id" pk="location_id" />
-			</fk>
-			<fk name="fk_facts_PPP_loans_dim_location_2" to_schema="cis4400-group-project" to_table="dim_location_gdp" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
-				<fk_column name="project_location_id" pk="location_id" />
-			</fk>
-			<fk name="fk_facts_PPP_loans_dim_location_3" to_schema="cis4400-group-project" to_table="dim_location_gdp" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
-				<fk_column name="originating_lender_location_id" pk="location_id" />
-			</fk>
 			<fk name="fk_facts_PPP_loans_dim_date" to_schema="cis4400-group-project" to_table="dim_date" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
 				<fk_column name="date_approved_id" pk="date_id" />
 			</fk>
@@ -114,19 +153,52 @@
 			<fk name="fk_facts_PPP_loans_dim_date_2" to_schema="cis4400-group-project" to_table="dim_date" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
 				<fk_column name="forgiveness_date_id" pk="date_id" />
 			</fk>
+			<fk name="fk_facts_PPP_loans_dim_borrower" to_schema="cis4400-group-project" to_table="dim_borrower" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="borrower_id" pk="borrower_id" />
+			</fk>
+			<fk name="fk_facts_PPP_loans_Dim_servicing_lender" to_schema="cis4400-group-project" to_table="Dim_servicing_lender" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="servicing_lender_location_id" pk="servicing_lender_location_id" />
+			</fk>
+			<fk name="fk_facts_PPP_loans_dim_originating_lender" to_schema="cis4400-group-project" to_table="dim_originating_lender" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="orginating_lender_location_id" pk="originiating_location_id" />
+			</fk>
+			<fk name="fk_facts_PPP_loans_dim_processing_method" to_schema="cis4400-group-project" to_table="dim_processing_method" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="processing_method" pk="processing_method" />
+			</fk>
+			<fk name="fk_facts_PPP_loans_dim_SBA_office" to_schema="cis4400-group-project" to_table="dim_SBA_office" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="SBA_office_code" pk="SBA_office_code" />
+			</fk>
+		</table>
+		<table name="facts_gdp" prior="gdp_facts" >
+			<column name="facts_gdp_id" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="gdp_2017" type="BIGINT" jt="-5" />
+			<column name="gdp_2018" type="BIGINT" jt="-5" />
+			<column name="gdp_2019" type="BIGINT" jt="-5" />
+			<column name="gdp_2020" type="BIGINT" jt="-5" />
+			<column name="gdp_2021" type="BIGINT" jt="-5" />
+			<column name="gdp_2022" type="BIGINT" jt="-5" />
+			<column name="unit" type="VARCHAR" length="100" jt="12" />
+			<column name="description" type="VARCHAR" length="100" jt="12" />
+			<column name="line_code" type="INT" jt="4" />
+			<column name="table_name" type="VARCHAR" length="10" jt="12" />
+			<column name="region" type="INT" jt="4" />
+			<column name="geo_name" type="VARCHAR" length="50" jt="12" />
+			<column name="geofips" type="INT" jt="4" />
+			<index name="pk_facts_gdp" unique="PRIMARY_KEY" >
+				<column name="facts_gdp_id" />
+			</index>
 		</table>
 	</schema>
 	<layout name="Default Layout" id="Layout-b61" show_relation="columns" >
-		<entity schema="cis4400-group-project" name="dim_date" color="C1D8EE" x="256" y="464" />
-		<entity schema="cis4400-group-project" name="dim_industry" color="C1D8EE" x="592" y="208" />
-		<entity schema="cis4400-group-project" name="dim_location_gdp" color="C1D8EE" x="1008" y="480" />
-		<entity schema="cis4400-group-project" name="facts_PPP_loans" color="C1D8EE" x="560" y="496" />
-		<callout x="48" y="48" pointer="Round" >
-			<comment><![CDATA[This is a layout - a diagram with tools.
-- Create new entities by right-clicking the layout. 
-- Double-click entity headers to edit.
-- For a better understanding of the schema, create multiple layouts.
-- Deploy the model into the database by converting it first to the physical design.]]></comment>
-		</callout>
+		<entity schema="cis4400-group-project" name="Dim_servicing_lender" color="C1D8EE" x="51" y="850" />
+		<entity schema="cis4400-group-project" name="dim_SBA_office" color="C1D8EE" x="816" y="391" />
+		<entity schema="cis4400-group-project" name="dim_borrower" color="C1D8EE" x="510" y="51" />
+		<entity schema="cis4400-group-project" name="dim_census_location" color="C1D8EE" x="51" y="238" />
+		<entity schema="cis4400-group-project" name="dim_date" color="C1D8EE" x="51" y="493" />
+		<entity schema="cis4400-group-project" name="dim_industry" color="C1D8EE" x="306" y="119" />
+		<entity schema="cis4400-group-project" name="dim_originating_lender" color="C1D8EE" x="663" y="850" />
+		<entity schema="cis4400-group-project" name="dim_processing_method" color="C1D8EE" x="816" y="612" />
+		<entity schema="cis4400-group-project" name="facts_PPP_loans" color="C1D8EE" x="357" y="408" />
+		<entity schema="cis4400-group-project" name="facts_gdp" color="C1D8EE" x="629" y="408" />
 	</layout>
 </project>
