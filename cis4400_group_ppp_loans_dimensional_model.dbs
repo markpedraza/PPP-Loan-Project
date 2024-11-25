@@ -125,6 +125,7 @@
 			<column name="orginating_lender_location_id" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="processing_method" type="BIGINT" jt="-5" mandatory="y" />
 			<column name="SBA_office_code" type="BIGINT" jt="-5" mandatory="y" />
+			<column name="census_location_id" type="BIGINT" jt="-5" mandatory="y" />
 			<index name="pk_facts_PPP_loans" unique="PRIMARY_KEY" >
 				<column name="fact_id" />
 				<column name="date_approved_id" />
@@ -137,6 +138,7 @@
 				<column name="orginating_lender_location_id" />
 				<column name="processing_method" />
 				<column name="SBA_office_code" />
+				<column name="census_location_id" />
 			</index>
 			<fk name="fk_facts_PPP_loans_dim_date" to_schema="cis4400-group-project" to_table="dim_date" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
 				<fk_column name="date_approved_id" pk="date_id" />
@@ -167,6 +169,9 @@
 			</fk>
 			<fk name="fk_facts_PPP_loans_dim_SBA_office" to_schema="cis4400-group-project" to_table="dim_SBA_office" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
 				<fk_column name="SBA_office_code" pk="SBA_office_code" />
+			</fk>
+			<fk name="fk_facts_PPP_loans_dim_census_location" to_schema="cis4400-group-project" to_table="dim_census_location" type="Identifying" mandatory="y" cardinality="OneMore" range_from="0" range_to="0" >
+				<fk_column name="census_location_id" pk="census_location_id" />
 			</fk>
 		</table>
 		<table name="facts_gdp" prior="gdp_facts" >
