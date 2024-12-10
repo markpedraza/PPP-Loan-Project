@@ -8,7 +8,8 @@ When COVID-19 hit, the SBA offered relief to small businesses through programs l
 ## BUSINESS REQUIREMENTS:
 
 The main business requirement for your project is to analyze if the ratio between the total amount of PPP loans issued per county and the county's GDP makes sense. This involved examining how well the load distribution aligns with the GDP of each county, which will then provide insight into whether the loans were distributed in proportion to each counties capacity, population, and economic needs.
-Functional Requirements:
+
+## Functional Requirements:
 
 **Total Loan by Companies:** To understand the allocation of loans on an individual company level.
 
