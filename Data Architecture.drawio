@@ -1,0 +1,58 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="25.0.3">
+  <diagram name="Page-1" id="HY5H5H66vUb7NBInMJz2">
+    <mxGraphModel dx="714" dy="595" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-1" value="Data Source&lt;div&gt;(NAICS Codes)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="250" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="dJOEoQMjBjVCngzdjyvv-3" target="dJOEoQMjBjVCngzdjyvv-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-3" value="Temp Storage" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="240" y="245" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dJOEoQMjBjVCngzdjyvv-1" target="dJOEoQMjBjVCngzdjyvv-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-5" value="Data Source&lt;div&gt;(PPP Loans)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="365" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dJOEoQMjBjVCngzdjyvv-5" target="dJOEoQMjBjVCngzdjyvv-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-7" value="Temp Storage" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="240" y="360" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-8" value="Data Source&lt;div&gt;(GDP)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="475" width="130" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dJOEoQMjBjVCngzdjyvv-8" target="dJOEoQMjBjVCngzdjyvv-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-10" value="Temp Storage" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="240" y="470" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="dJOEoQMjBjVCngzdjyvv-12" target="dJOEoQMjBjVCngzdjyvv-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-12" value="Data Mart" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="395" y="360" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dJOEoQMjBjVCngzdjyvv-3" target="dJOEoQMjBjVCngzdjyvv-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dJOEoQMjBjVCngzdjyvv-7" target="dJOEoQMjBjVCngzdjyvv-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="dJOEoQMjBjVCngzdjyvv-10" target="dJOEoQMjBjVCngzdjyvv-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dJOEoQMjBjVCngzdjyvv-16" value="Visualization" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="290" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
